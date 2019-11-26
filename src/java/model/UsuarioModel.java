@@ -76,7 +76,8 @@ public class UsuarioModel implements IUsuarioModel {
         } catch (HibernateException e) {
             System.out.println(e);
         }
-        return usuario;    }
+        return usuario;    
+    }
 
     @Override
     public List<Usuario> ObtenerRegistros() {

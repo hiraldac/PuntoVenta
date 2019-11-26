@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 26/11/2019 01:16:58 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="entity.Detalle" table="detalle" schema="public" optimistic-lock="version">
+        <composite-id name="id" class="entity.DetalleId">
+            <key-property name="ventaid" type="long">
+                <column name="ventaid" />
+            </key-property>
+            <key-property name="cantidad" type="int">
+                <column name="cantidad" />
+            </key-property>
+        </composite-id>
+        <many-to-one name="producto" class="entity.Producto" fetch="select">
+            <column name="productoid" not-null="true" />
+        </many-to-one>
+        <many-to-one name="venta" class="entity.Venta" update="false" insert="false" fetch="select">
+            <column name="ventaid" not-null="true" />
+        </many-to-one>
+    </class>
+</hibernate-mapping>

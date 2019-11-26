@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 26/11/2019 01:16:58 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="entity.Venta" table="venta" schema="public" optimistic-lock="version">
+        <id name="idventa" type="long">
+            <column name="idventa" />
+            <generator class="assigned" />
+        </id>
+        <property name="hora" type="timestamp">
+            <column name="hora" length="29" not-null="true" />
+        </property>
+        <property name="total" type="big_decimal">
+            <column name="total" precision="131089" scale="0" not-null="true" />
+        </property>
+        <property name="usuarioid" type="long">
+            <column name="usuarioid" not-null="true" />
+        </property>
+        <set name="detalles" table="detalle" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ventaid" not-null="true" />
+            </key>
+            <one-to-many class="entity.Detalle" />
+        </set>
+    </class>
+</hibernate-mapping>

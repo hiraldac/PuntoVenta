@@ -6,6 +6,7 @@
 package model;
 
 import entity.Usuario;
+import java.util.List;
 
 /**
  *
@@ -14,5 +15,7 @@ import entity.Usuario;
 public interface IUsuarioModel {
     public void CrearUsuario(Usuario usuario);
     public void ActualizarUsuario(Usuario usuario);
-    public void EliminarUsuario(Usuario usuario);
+    public void EliminarRegistro(Usuario usuario);
+    public Usuario ObtenerRegistro(int usuario);
+    public List<Usuario> ObtenerRegistros();
 }

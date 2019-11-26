@@ -1,17 +1,15 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+/* 
+ * Autor:  Pedro Eliezer García Ramírez
+ * Email: pedro.e.garcia.ramirez@gmail.com
+ * Creación: 26/11/2019
+ *
  */
 package service;
 
 import entity.Usuario;
 import java.util.List;
 
-/**
- *
- * @author labtw04
- */
+
 public interface IUsuarioService {
 
     public void CrearUsuario(Usuario usuario);
@@ -20,7 +18,7 @@ public interface IUsuarioService {
 
     public void EliminarRegistro(Usuario usuario);
 
-    public Usuario ObtenerRegistro(int usuario);
+    public Usuario ObtenerRegistro(int idusuario);
 
     public List<Usuario> ObtenerRegistros();
 }

@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package model;
+package service;
 
 import entity.Usuario;
 import java.util.List;
@@ -12,7 +12,7 @@ import java.util.List;
  *
  * @author labtw04
  */
-public interface IUsuarioModel {
+public interface IUsuarioService {
 
     public void CrearUsuario(Usuario usuario);
 

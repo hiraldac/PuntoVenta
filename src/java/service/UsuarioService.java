@@ -8,30 +8,36 @@ package service;
 
 import entity.Usuario;
 import java.util.List;
+import model.IUsuarioModel;
+import model.UsuarioModel;
 
 
 public class UsuarioService implements IUsuarioService{
 
+    IUsuarioModel um = new UsuarioModel();
     @Override
     public void CrearUsuario(Usuario usuario) {
+        um.CrearUsuario(usuario);
     }
 
     @Override
     public void ActualizarUsuario(Usuario usuario) {
+        um.ActualizarUsuario(usuario);
     }
 
     @Override
     public void EliminarRegistro(Usuario usuario) {
+        um.EliminarRegistro(usuario);
     }
 
     @Override
-    public Usuario ObtenerRegistro(int idusuario) {
-        return null;
+    public Usuario ObtenerRegistro(long idusuario) {
+        return um.ObtenerRegistro(idusuario);
     }
 
     @Override
     public List<Usuario> ObtenerRegistros() {
-        return null;
+        return um.ObtenerRegistros();
     }
     
 }

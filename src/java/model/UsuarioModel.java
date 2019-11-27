@@ -88,11 +88,13 @@ public class UsuarioModel implements IUsuarioModel {
             lista = (ArrayList<Usuario>) session.createQuery("FROM usuario").list();
             for (Usuario u : lista) {
              //   System.out.println("Nombre: " + u.getNombre());
+             
             }
             session.close();
             sessionFactory.close();
         } catch (HibernateException e) {
           //  System.out.println("Error de actualización del Jugador");
+          
             System.out.println(e);
         }
         return lista;

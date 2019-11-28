@@ -94,8 +94,6 @@ public class UsuarioModel implements IUsuarioModel {
             session.close();
             sessionFactory.close();
         } catch (HibernateException e) {
-            System.out.println("Error de actualización del Usuario");
-
             System.out.println(e.getMessage());
         }
         return lista;

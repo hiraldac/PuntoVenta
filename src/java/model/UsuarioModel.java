@@ -30,7 +30,7 @@ public class UsuarioModel implements IUsuarioModel {
             session.close();
             sessionFactory.close();
         } catch (HibernateException e) {
-            System.out.println(e.toString());
+            System.out.println(e.getMessage());
         }
     }
 
@@ -45,7 +45,7 @@ public class UsuarioModel implements IUsuarioModel {
             session.close();
             sessionFactory.close();
         } catch (HibernateException e) {
-            System.out.println(e.toString());
+            System.out.println(e.getMessage());
         }
     }
 
@@ -60,13 +60,14 @@ public class UsuarioModel implements IUsuarioModel {
             session.close();
             sessionFactory.close();
         } catch (HibernateException e) {
-            System.out.println(e.toString());
+            System.out.println(e.getMessage());
         }
     }
-    @Override
-    public Usuario ObtenerRegistro(int idusuario) {
 
-       Usuario usuario = null;
+    @Override
+    public Usuario ObtenerRegistro(long idusuario) {
+
+        Usuario usuario = null;
         try {
             sessionFactory = new Configuration().configure().buildSessionFactory();
             session = sessionFactory.openSession();
@@ -74,9 +75,9 @@ public class UsuarioModel implements IUsuarioModel {
             session.close();
             sessionFactory.close();
         } catch (HibernateException e) {
-            System.out.println(e);
+            System.out.println(e.getMessage());
         }
-        return usuario;    
+        return usuario;
     }
 
     @Override
@@ -87,19 +88,21 @@ public class UsuarioModel implements IUsuarioModel {
             session = sessionFactory.openSession();
             lista = (ArrayList<Usuario>) session.createQuery("FROM usuario").list();
             for (Usuario u : lista) {
-             //   System.out.println("Nombre: " + u.getNombre());
-             
+                System.out.println("Nombre: " + u.getNombre());
+
             }
             session.close();
             sessionFactory.close();
         } catch (HibernateException e) {
-          //  System.out.println("Error de actualización del Jugador");
-          
-            System.out.println(e);
+            System.out.println("Error de actualización del Usuario");
+
+            System.out.println(e.getMessage());
         }
         return lista;
     }
 
-
-
+    public static void main(String[] args) {
+        UsuarioModel um = new UsuarioModel();
+        um.ObtenerRegistros();
+    }
 }

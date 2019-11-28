@@ -102,7 +102,7 @@ public class UsuarioModel implements IUsuarioModel {
     }
 
     public static void main(String[] args) {
-        UsuarioModel um = new UsuarioModel();
-        um.ObtenerRegistros();
+        VentaModel vm=new VentaModel();
+        
     }
 }

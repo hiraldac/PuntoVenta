@@ -2,7 +2,7 @@
  * Autor:  Eber Martínez García
  * Email: eber.mtzg.dev@gmail.com
  * Creación: 28/11/2019
- * Modificacion: 28/11/2019
+ * Modificacion: 29/11/2019
  */
 package service;
 
@@ -29,8 +29,8 @@ public class ProductoService implements IProductoService{
     }
 
     @Override
-    public Producto ObtenerProducto(Producto producto) {
-        return ips.ObtenerProducto(producto);
+    public Producto ObtenerProducto(String idproducto) {
+        return ips.ObtenerProducto(idproducto);
     }
 
     @Override

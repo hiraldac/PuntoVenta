@@ -2,7 +2,7 @@
  * Autor:  Eber Martínez García
  * Email: eber.mtzg.dev@gmail.com
  * Creación: 28/11/2019
- * Modificacion: 28/11/2019
+ * Modificacion: 29/11/2019
  */
 package service;
 
@@ -16,7 +16,7 @@ public interface IProductoService {
 
     public void EliminarProducto(Producto producto);
 
-    public Producto ObtenerProducto(Producto producto);
+    public Producto ObtenerProducto(String idproducto);
 
     public List<Producto> ObtenerProductos();
 }

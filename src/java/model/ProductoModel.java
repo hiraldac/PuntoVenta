@@ -2,11 +2,12 @@
  * Autor:  Eber Martínez García
  * Email: eber.mtzg.dev@gmail.com
  * Creación: 26/11/2019
- * Modificacion: 26/11/2019
+ * Modificacion: 29/11/2019
  */
 package model;
 
 import entity.Producto;
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 import org.hibernate.HibernateException;
@@ -65,7 +66,7 @@ public class ProductoModel implements IProductoModel{
     }
 
     @Override
-    public Producto ObtenerProducto(int idproducto) {
+    public Producto ObtenerProducto(String idproducto) {
         Producto producto = null;
         try {
             sessionFactory = new Configuration().configure().buildSessionFactory();
@@ -85,9 +86,9 @@ public class ProductoModel implements IProductoModel{
         try {
             sessionFactory = new Configuration().configure().buildSessionFactory();
             session = sessionFactory.openSession();
-            listaproducto = (ArrayList<Producto>) session.createQuery("FROM usuario").list();
+            listaproducto = (ArrayList<Producto>) session.createQuery("FROM Producto").list();
             for (Producto p : listaproducto) {
-                //System.out.println("Nombre: " + u.getNombre());
+                System.out.println("Nombre: " + p.getNombre());
              
             }
             session.close();
@@ -96,6 +97,20 @@ public class ProductoModel implements IProductoModel{
             System.out.println(e);
         }
         return listaproducto;
+    }
+    
+    public static void main(String[] args) {
+        ProductoModel pm=new ProductoModel();
+        Producto p= new Producto();
+//        p.setNombre("Sopa");
+//        p.setMarca("Maruchan");
+//        p.setPrecio(BigDecimal.valueOf(10.0));
+//        p.setExistencia(120);
+//        p.setDescripcion("Comida istantanea");
+        p.setIdproducto("123456789");
+        pm.EliminarProducto(p);
+//        
+//        pm.ObtenerProductos();
     }
     
 }

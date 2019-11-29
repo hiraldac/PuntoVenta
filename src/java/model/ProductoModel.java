@@ -87,14 +87,12 @@ public class ProductoModel implements IProductoModel{
             session = sessionFactory.openSession();
             listaproducto = (ArrayList<Producto>) session.createQuery("FROM usuario").list();
             for (Producto p : listaproducto) {
-             //   System.out.println("Nombre: " + u.getNombre());
+                //System.out.println("Nombre: " + u.getNombre());
              
             }
             session.close();
             sessionFactory.close();
-        } catch (HibernateException e) {
-          //  System.out.println("Error de actualización del Jugador");
-          
+        } catch (HibernateException e) {        
             System.out.println(e);
         }
         return listaproducto;

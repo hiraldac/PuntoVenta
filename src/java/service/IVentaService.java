@@ -7,10 +7,13 @@
 package service;
 
 import entity.Venta;
+import java.util.List;
 
 
 public interface IVentaService{
     public void CrearVenta(Venta venta);
     public void ActualizarVenta(Venta venta);
     public void EliminarVEnta(Venta venta);
+    public Venta ObtenerRegistro(long idventa);
+    public List<Venta> ObtenerRegistros();
 }

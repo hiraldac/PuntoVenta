@@ -31,7 +31,7 @@ CREATE TABLE public.producto
 CREATE TABLE public.venta
 (
     idventa bigserial NOT NULL ,
-    hora timestamp without time zone NOT NULL,
+    fecha timestamp without time zone NOT NULL,
     total numeric NOT NULL,
     usuarioid bigint NOT NULL,
     CONSTRAINT venta_pkey PRIMARY KEY (idventa)

@@ -101,6 +101,7 @@ public class UsuarioModel implements IUsuarioModel {
     }
 /*
     public static void main(String[] args) {
+<<<<<<< HEAD
         UsuarioModel um = new UsuarioModel();
         Usuario u= new Usuario();
         u.setNombre("fff");
@@ -112,4 +113,9 @@ public class UsuarioModel implements IUsuarioModel {
      um.ObtenerRegistro(1);
     }*/
 
+=======
+        VentaModel vm=new VentaModel();
+        
+    }
+>>>>>>> scriptBD
 }

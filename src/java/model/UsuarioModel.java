@@ -86,8 +86,9 @@ public class UsuarioModel implements IUsuarioModel {
         try {
             sessionFactory = new Configuration().configure().buildSessionFactory();
             session = sessionFactory.openSession();
-            lista = (ArrayList<Usuario>) session.createQuery("FROM usuario").list();
+            lista = (ArrayList<Usuario>) session.createQuery("FROM Usuario").list();
             for (Usuario u : lista) {
+                System.out.println("ID: " + u.getIdusuario());
                 System.out.println("Nombre: " + u.getNombre());
 
             }
@@ -98,9 +99,17 @@ public class UsuarioModel implements IUsuarioModel {
         }
         return lista;
     }
-
+/*
     public static void main(String[] args) {
         UsuarioModel um = new UsuarioModel();
-        um.ObtenerRegistros();
-    }
+        Usuario u= new Usuario();
+        u.setNombre("fff");
+        u.setContrasena("rrr");
+        u.setTipo("tt");
+        u.setUsuario("adminPedro");
+        um.CrearUsuario(u);
+    
+     um.ObtenerRegistro(1);
+    }*/
+
 }

@@ -1,31 +1,47 @@
 <?xml version='1.0' encoding='UTF-8' ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
 
     <body>
 
         <ui:composition template="./../template/template.xhtml">
 
-            <ui:define name="top">
-                top
-            </ui:define>
-
-            <ui:define name="left">
-                left
-            </ui:define>
-
-            <ui:define name="right">
-                right
-            </ui:define>
-
             <ui:define name="content">
-                content
+                <h:form>
+                    <p:growl id="growl" sticky="true" showDetail="true"/>
+                    <p:panel style="text-align: center" header="CREACIÓN DE USUARIOS">                    
+
+                        <h:panelGrid columns="2" columnClasses="label, value">
+                            <h:outputText value="Nombre: *" />
+                            <p:inputText value="#{usuarioBean.usr.nombre}" 
+                                         required="true" 
+                                         label="Nombre"/>
+                            <h:outputText value="tipo de usuario *" />
+                            <p:inputText value="#{usuarioBean.usr.tipo}" 
+                                         required="true" 
+                                         label="Tipo"/>
+                            <h:outputText value="Contraseña: *" />
+                            <p:inputText value="#{usuarioBean.usr.contrasena}" 
+                                         required="true" 
+                                         label="Pass"/>
+                            <h:outputText value="Nombre de usuario *" />
+                            <p:inputText value="#{usuarioBean.usr.usuario}" 
+                                         required="true" 
+                                         label="Nuser"/>
+                            <br/>
+                            <br/>
+                            <br/>
+                            <p:commandButton value="Crear Usuario" 
+                                             action="#{usuarioBean.crearRegistro()}"
+                                             icon="pi pi-check"/>
+                        </h:panelGrid>
+                    </p:panel>
+                </h:form>
             </ui:define>
 
-            <ui:define name="bottom">
-                bottom
-            </ui:define>
 
         </ui:composition>
 

@@ -8,10 +8,13 @@ package service;
 
 import entity.Usuario;
 import java.util.List;
+import javax.faces.bean.ApplicationScoped;
+import javax.faces.bean.ManagedBean;
 import model.IUsuarioModel;
 import model.UsuarioModel;
 
-
+@ManagedBean(name = "usuarioService")
+@ApplicationScoped
 public class UsuarioService implements IUsuarioService{
 
     IUsuarioModel um = new UsuarioModel();

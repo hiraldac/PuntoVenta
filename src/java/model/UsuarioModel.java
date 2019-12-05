@@ -135,7 +135,7 @@ public class UsuarioModel implements IUsuarioModel {
                     new FacesMessage(FacesMessage.SEVERITY_WARN,
                             "Biebvenido!",
                             "Biebvenido!"));
-            String url = "http://132.18.53.62:8080/PuntoVenta/faces/pages/usuario/CrearUsuario.xhtml";
+            String url = "http://localhost:8080/PuntoVenta/faces/pages/producto/ListarProductos.xhtml";
 
             FacesContext.getCurrentInstance().getExternalContext().redirect(url);
         }

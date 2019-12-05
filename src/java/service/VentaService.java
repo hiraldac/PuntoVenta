@@ -7,6 +7,7 @@
 package service;
 
 import entity.Venta;
+import java.util.List;
 
 
 public class VentaService implements IVentaService{
@@ -25,6 +26,16 @@ public class VentaService implements IVentaService{
     @Override
     public void EliminarVEnta(Venta venta) {
         ivs.EliminarVEnta(venta);
+    }
+
+    @Override
+    public Venta ObtenerRegistro(long idventa) {
+        return ivs.ObtenerRegistro(idventa);
+    }
+
+    @Override
+    public List<Venta> ObtenerRegistros() {
+        return ivs.ObtenerRegistros();
     }
     
 }

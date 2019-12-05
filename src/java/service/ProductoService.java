@@ -8,10 +8,16 @@ package service;
 
 import entity.Producto;
 import java.util.List;
+import javax.faces.bean.ApplicationScoped;
+import javax.faces.bean.ManagedBean;
+import model.IProductoModel;
+import model.ProductoModel;
 
+@ManagedBean(name = "productoService")
+@ApplicationScoped
 public class ProductoService implements IProductoService{
     
-    IProductoService ips= new ProductoService();
+    IProductoModel ips= new ProductoModel();
 
     @Override
     public void CrearProducto(Producto producto) {
@@ -36,6 +42,11 @@ public class ProductoService implements IProductoService{
     @Override
     public List<Producto> ObtenerProductos() {
         return ips.ObtenerProductos();
+    }
+    
+    public static void main(String[] args) {
+        ProductoService ps = new ProductoService();
+        ps.ObtenerProductos();
     }
     
 }

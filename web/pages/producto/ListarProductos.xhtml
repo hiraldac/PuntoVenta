@@ -1,0 +1,124 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <body>
+
+        <ui:composition template="./../template/template.xhtml">
+            <ui:define name="content">
+               
+                <h:form id="idForm">
+                    <p:growl id="idMensaje" showDetail="true" />
+                    <p:dataTable 
+                        id="idTabla" 
+                        var="registro" 
+                        value="#{productoBean.listaProducto}"
+                        rowKey="#{registro.idproducto}"
+                        editable="true"
+                        style="margin-bottom:20px"
+                        emptyMessage="No hay registros"
+                        
+                        rows="10"
+                        paginator="true"
+                        paginatorTemplate="{CurrentPageReport} {FirstPageLink} 
+                                           {PreviousPageLink} {PageLinks} {NextPageLink} 
+                                           {LastPageLink} {RowsPerPageDropdown}"
+                        rowsPerPageTemplate="5,10,15">
+
+                        <f:facet name="header">
+                            LISTA DE PRODUCTOS
+                        </f:facet>
+
+                        <p:ajax event="rowEdit" listener="#{productoBean.onRowEdit}" 
+                                update=":idForm:idMensaje" />
+                        
+                        <p:ajax event="rowEditCancel" listener="#{productoBean.onRowCancel}" 
+                                update=":idForm:idMensaje" />
+
+                        <p:column headerText="Código Producto" style="width: 200px">
+                            <p:cellEditor>
+                                <f:facet name="output">
+                                    <h:outputText value="#{registro.idproducto}" />
+                                </f:facet>
+                                <f:facet name="input">
+                                    <p:inputText value="#{registro.idproducto}" style="width:100%"/>
+                                </f:facet>
+                            </p:cellEditor>
+                        </p:column>
+
+                        <p:column headerText="Nombre">
+                            <p:cellEditor>
+                                <f:facet name="output">
+                                    <h:outputText value="#{registro.nombre}" /></f:facet>
+                                <f:facet name="input">
+                                    <p:inputText value="#{registro.nombre}" style="width:100%" />
+                                </f:facet>
+                            </p:cellEditor>
+                        </p:column>
+                        
+                        <p:column headerText="Marca">
+                            <p:cellEditor>
+                                <f:facet name="output">
+                                    <h:outputText value="#{registro.marca}" /></f:facet>
+                                <f:facet name="input">
+                                    <p:inputText value="#{registro.marca}" style="width:100%" />
+                                </f:facet>
+                            </p:cellEditor>
+                        </p:column>
+                        
+                        <p:column headerText="Descripción">
+                            <p:cellEditor>
+                                <f:facet name="output">
+                                    <h:outputText value="#{registro.descripcion}" /></f:facet>
+                                <f:facet name="input">
+                                    <p:inputText value="#{registro.descripcion}" style="width:100%" />
+                                </f:facet>
+                            </p:cellEditor>
+                        </p:column>
+                        
+                        <p:column headerText="Precio">
+                            <p:cellEditor>
+                                <f:facet name="output">
+                                    <h:outputText value="#{registro.precio}" /></f:facet>
+                                <f:facet name="input">
+                                    <p:inputText value="#{registro.precio}" style="width:100%" />
+                                </f:facet>
+                            </p:cellEditor>
+                        </p:column>
+                        
+                        <p:column headerText="Existencia">
+                            <p:cellEditor>
+                                <f:facet name="output">
+                                    <h:outputText value="#{registro.existencia}" /></f:facet>
+                                <f:facet name="input">
+                                    <p:inputText value="#{registro.existencia}" style="width:100%" />
+                                </f:facet>
+                            </p:cellEditor>
+                        </p:column>
+
+                        <p:column style="width:72px" headerText="Editar">
+                            <p:rowEditor />
+                        </p:column>
+
+                        <p:column style="width:82px" headerText="eliminar">
+                            <p:commandButton title="Eliminar el registro"
+                                             action="#{productoBean.eliminarProducto(registro)}" 
+                                             icon="ui-icon-trash"
+                                             update=":idForm:idTabla" >
+
+                            </p:commandButton>
+                        </p:column>
+                    </p:dataTable>
+
+                </h:form>
+
+            </ui:define>
+
+        </ui:composition>
+
+    </body>
+</html>

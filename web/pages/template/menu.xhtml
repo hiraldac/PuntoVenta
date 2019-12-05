@@ -1,0 +1,36 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+
+    <body>
+
+        <h:form>  
+            <p:growl id="messages" showDetail="true" />
+
+            <p:tieredMenu style="width:135px">
+                <p:submenu label="Usuario" icon="pi pi-user">
+                    <p:menuitem value="Crear" url="../" icon="pi pi-clone"/>
+                    <p:menuitem value="Listar" url="../" icon="pi pi-list" />
+                </p:submenu>   
+                
+                <p:separator />
+                
+                <p:submenu label="Producto" icon="pi pi-calendar">
+                    <p:menuitem value="Crear" url="../producto/CrearProducto.xhtml" icon="pi pi-calendar" />
+                    <p:menuitem value="Listar" url="../producto/ListarProductos.xhtml" icon="pi pi-list" />
+                </p:submenu> 
+                
+                <p:separator />
+                
+                <p:submenu label="Venta" icon="pi pi-users">
+                    <p:menuitem value="Crear" url="../" icon="pi pi-user" />
+                    <p:menuitem value="Listar" url="../" icon="pi pi-list" />
+                </p:submenu>       
+            </p:tieredMenu>        
+        </h:form>
+
+    </body>
+</html>

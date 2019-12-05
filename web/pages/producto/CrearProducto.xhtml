@@ -1,0 +1,67 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+
+    <body>
+
+        <ui:composition template="./../template/template.xhtml">
+
+            <ui:define name="content">
+                
+                <h:form id="idForm">
+                    <p:growl id="idMensaje" sticky="true" showDetail="true"/>
+                    <p:panel header="Registro de Productos">
+                        <h:panelGrid columns="2" columnClasses="label, value">
+                            <h:outputText value="Código"/>
+                            <p:inputText value="#{productoBean.producto.idproducto}"
+                                         required="true"
+                                         label="Codigo"
+                                         id="idCodigo"/>
+                            
+                            <h:outputText value="Nombre"/>
+                            <p:inputText value="#{productoBean.producto.nombre}"
+                                         required="true"
+                                         label="Nombre"
+                                         id="idNombre"/>
+                            
+                            <h:outputText value="Marca"/>
+                            <p:inputText value="#{productoBean.producto.marca}"
+                                         required="true"
+                                         label="Marca"
+                                         id="idMarca"/>
+                            
+                            <h:outputText value="Precio"/>
+                            <p:inputText value="#{productoBean.producto.precio}"
+                                         required="true"
+                                         label="Precio"
+                                         id="idPrecio"/>
+                            
+                            <h:outputText value="Existencia"/>
+                            <p:inputText value="#{productoBean.producto.existencia}"
+                                         required="true"
+                                         label="Existencia"
+                                         id="idExistencia"/>
+                            
+                            <h:outputText value="Descripción"/>
+                            <p:inputTextarea value="#{productoBean.producto.descripcion}"
+                                         required="true"
+                                         label="Descripcion"
+                                         id="idDescripcion"/>
+                            
+                            <p:commandButton value="Registrar Producto"
+                                             action="#{productoBean.crearProducto()}"
+                                             update=":idForm:idMensaje"
+                                             icon="pi pi-check"/>
+                        </h:panelGrid>
+                    </p:panel>
+                </h:form>
+                
+            </ui:define>
+
+        </ui:composition>
+
+    </body>
+</html>

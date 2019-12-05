@@ -55,10 +55,10 @@ public class UsuarioController implements Serializable {
         FacesContext.getCurrentInstance().addMessage(null, mensaje);
         this.listaLiga= service.ObtenerRegistros();
     }
-/*
+
     public void onRowEdit(RowEditEvent event) {
-        Liga ligaSelected = ((Liga) event.getObject());
-        service.actualizararRegistro(ligaSelected);
+        Usuario ligaSelected = ((Usuario) event.getObject());
+        service.ActualizarUsuario(ligaSelected);
         FacesMessage mensaje = new FacesMessage("Registro editado exitósamente",
                 ligaSelected.getNombre());
         FacesContext.getCurrentInstance().addMessage(null, mensaje);
@@ -66,10 +66,10 @@ public class UsuarioController implements Serializable {
 
     public void onRowCancel(RowEditEvent event) {
         FacesMessage msg = new FacesMessage("Actualización cancelada",
-                ((Liga) event.getObject()).getNombre());
+                ((Usuario) event.getObject()).getNombre());
         FacesContext.getCurrentInstance().addMessage(null, msg);
     }
-*/
+
     public List<Usuario> getListaLiga() {
         return listaLiga;
     }

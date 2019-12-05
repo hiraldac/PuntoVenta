@@ -7,8 +7,12 @@
 package model;
 
 import entity.Usuario;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import javax.faces.application.FacesMessage;
+import javax.faces.context.FacesContext;
+import javax.swing.JOptionPane;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -99,23 +103,42 @@ public class UsuarioModel implements IUsuarioModel {
         }
         return lista;
     }
-/*
-    public static void main(String[] args) {
-<<<<<<< HEAD
-        UsuarioModel um = new UsuarioModel();
-        Usuario u= new Usuario();
-        u.setNombre("fff");
-        u.setContrasena("rrr");
-        u.setTipo("tt");
-        u.setUsuario("adminPedro");
-        um.CrearUsuario(u);
-    
-     um.ObtenerRegistro(1);
-    }*/
 
-=======
-        VentaModel vm=new VentaModel();
-        
+    public boolean Consulta(String nombre, String contraseña) throws IOException {
+        boolean v = false;
+        ArrayList<Usuario> lista = null;
+        try {
+            sessionFactory = new Configuration().configure().buildSessionFactory();
+            session = sessionFactory.openSession();
+            lista = (ArrayList<Usuario>) session.createQuery("FROM Usuario").list();
+            for (Usuario u : lista) {
+                if (u.getNombre().equals(nombre) && u.getContrasena().equals(contraseña)) {
+                    v = true;
+                    System.out.println("ID: " + u.getNombre());
+                    System.out.println("Nombre: " + u.getContrasena());
+                }
+            }
+            session.close();
+            sessionFactory.close();
+        } catch (HibernateException e) {
+            System.out.println(e.getMessage());
+        }
+        if (!v) {
+            FacesContext.getCurrentInstance().addMessage(
+                    null,
+                    new FacesMessage(FacesMessage.SEVERITY_WARN,
+                            "Incorrecto!",
+                            "Intente de nuevo!"));
+        } else {
+            FacesContext.getCurrentInstance().addMessage(
+                    null,
+                    new FacesMessage(FacesMessage.SEVERITY_WARN,
+                            "Biebvenido!",
+                            "Biebvenido!"));
+            String url = "http://132.18.53.62:8080/PuntoVenta/faces/pages/usuario/CrearUsuario.xhtml";
+
+            FacesContext.getCurrentInstance().getExternalContext().redirect(url);
+        }
+        return v;
     }
->>>>>>> scriptBD
 }

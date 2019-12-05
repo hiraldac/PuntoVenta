@@ -1,7 +1,6 @@
 body {
     font-size: 19px;
     font-family: Verdana, "Verdana CE",  Arial, "Arial CE", "Lucida Grande CE", lucida, "Helvetica CE", sans-serif;
-    color: #000000;  
     margin: 10px;
 }
 
@@ -16,15 +15,15 @@ h1 {
 }
 
 a:link, a:visited {
-  color: #045491;
-  font-weight : bold;
-  text-decoration: none;
+    color: #045491;
+    font-weight : bold;
+    text-decoration: none;
 }
 
 a:link:hover, a:visited:hover  {
-  color: #045491;
-  font-weight : bold;
-  text-decoration : underline;
+    color: #045491;
+    font-weight : bold;
+    text-decoration : underline;
 }
 .centerDiv{
     display: block;

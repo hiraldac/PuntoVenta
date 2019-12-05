@@ -7,7 +7,7 @@
 
 CREATE TABLE public.usuario
 (
-    idusuario bigint NOT NULL,
+    idusuario bigserial NOT NULL,
     nombre text NOT NULL,
     tipo text NOT NULL,
     contrasena text NOT NULL,
@@ -30,8 +30,8 @@ CREATE TABLE public.producto
 
 CREATE TABLE public.venta
 (
-    idventa bigint NOT NULL ,
-    hora timestamp without time zone NOT NULL,
+    idventa bigserial NOT NULL ,
+    fecha timestamp without time zone NOT NULL,
     total numeric NOT NULL,
     usuarioid bigint NOT NULL,
     CONSTRAINT venta_pkey PRIMARY KEY (idventa)
@@ -39,7 +39,7 @@ CREATE TABLE public.venta
 
 CREATE TABLE public.detalle
 (
-    ventaid bigint NOT NULL,
+    ventaid bigserial NOT NULL,
     cantidad integer NOT NULL,
     productoid text NOT NULL,
     CONSTRAINT detalle_pkey PRIMARY KEY (ventaid, cantidad),

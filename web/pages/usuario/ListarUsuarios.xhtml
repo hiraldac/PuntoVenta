@@ -1,0 +1,79 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <body>
+
+        <ui:composition template="./../template/template.xhtml">
+
+            <ui:define name="content">
+
+                <h:form id="idForm">
+                    <p:growl id="idMensaje" showDetail="true">
+                        <p:dataTable
+                            id="idTabla"
+                            var="registro"
+                            value="#{usuarioBean.listaLiga}"
+                            rowKey="#{registro.idusuario}"
+                            editable="true"
+                            style="margin-bottom: 20px"
+                            emptyMessage="no hay registro"
+                            rows="10"
+                            paginator="true"
+                           >
+                            <f:facet name="header">
+                                LISTADO DE USUARIOS
+                            </f:facet>
+                            <p:ajax event="rowEdit" listener="#{usuarioBean.onRowEdit}"
+                                    />
+                            <p:ajax event="rowEditCancel" listener="#{usuarioBean.onRowCancel}"
+                                   />
+
+                            <p:column headerText="Id Usuario" style="width: 200px">
+                                <p:cellEditor>
+                                    <f:facet name="output">
+                                        <h:outputText value="#{registro.idusuario}"/>
+                                    </f:facet>
+                                    <f:facet name="input">
+                                        <h:outputText id="modelinput" value="#{registro.idusuario}" style="width: 100%"/>
+                                    </f:facet>
+                                </p:cellEditor> 
+                            </p:column>
+
+                            <p:column>
+                                <p:cellEditor>
+                                    <f:facet name="output">
+                                        <h:outputText value="#{registro.nombre}"/>
+                                    </f:facet>
+                                    <f:facet name="input">
+                                        <h:outputText value="#{registro.nombre}" style="width: 100%"/>
+                                    </f:facet>
+                                </p:cellEditor>
+                            </p:column>
+
+                            <p:column style="width:72px" headerText="Editar">
+                                <p:rowEditor/>
+                            </p:column>
+
+                            <p:column style="width:82px" headerText="Eliminar">
+                                <p:commandButton title="Elimianr el registro"
+                                                 action="#{usuarioBean.eliminarRegistro(registro)}"
+                                                 icon="ui-icon-trash"
+                                                >
+
+                                </p:commandButton>
+                            </p:column>
+                        </p:dataTable>
+                    </p:growl>
+                </h:form>
+
+            </ui:define>
+
+        </ui:composition>
+
+    </body>
+</html>

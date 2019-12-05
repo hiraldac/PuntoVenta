@@ -14,11 +14,15 @@
     <h:body>
 
         <div id="top">
-            <ui:insert name="top">Top</ui:insert>
+            <ui:insert name="top">
+                <ui:include src="header.xhtml"></ui:include>
+            </ui:insert>
         </div>
         <div>
             <div id="left">
-                <ui:insert name="left">Left</ui:insert>
+                <ui:insert name="left">
+                    <ui:include src="menu.xhtml"></ui:include>
+                </ui:insert>
             </div>
             <div>
                 <div id="right">
@@ -30,7 +34,9 @@
             </div>
         </div>
         <div id="bottom">
-            <ui:insert name="bottom">Bottom</ui:insert>
+            <ui:insert name="bottom">
+                <ui:include src="footer.xhtml"></ui:include>
+            </ui:insert>
         </div>
 
     </h:body>
